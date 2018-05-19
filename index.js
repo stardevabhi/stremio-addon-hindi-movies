@@ -39,7 +39,7 @@ let scrape = async () => {
 			
 			let title_array = document.querySelectorAll('ytd-section-list-renderer#primary #contents .ytd-playlist-video-list-renderer #video-title');
 			let titles = [];
-			titles.push('Ramayan luv kush kand 1988');
+			//titles.push('Ramayan luv kush kand 1988');
 
 			title_array.forEach(function(item, index) {
 				titles.push(item.innerText);
@@ -54,7 +54,7 @@ let scrape = async () => {
 			//window.alert('s');
 			let href_array = document.querySelectorAll('ytd-section-list-renderer#primary #contents .ytd-playlist-video-list-renderer #content > a');
 			let hrefs = [];
-			hrefs.push('3QG5diJcfh8');
+			//hrefs.push('3QG5diJcfh8');
 			
 			href_array.forEach(function(item, index) {
 					const href_value =  item.getAttribute('href');
@@ -199,10 +199,10 @@ var manifest = {
     "background": "https://raw.githubusercontent.com/stardevabhi/stremio-addon-hindi-movies/master/icons/hindi-movies-1920x1080.png",
 
     // Properties that determine when Stremio picks this add-on
-    "types": ["movie", "series"], // your add-on will be preferred for those content types
+    "types": ["movie"], // your add-on will be preferred for those content types
     "idProperty": "imdb_id", // the property to use as an ID for your add-on; your add-on will be preferred for items with that property; can be an array
     // We need this for pre-4.0 Stremio, it's the obsolete equivalent of types/idProperty
-    "filter": { "query.imdb_id": { "$exists": true }, "query.type": { "$in":["movie", "series"] } }
+    "filter": { "query.imdb_id": { "$exists": true }, "query.type": { "$in":["movie"] } }
 };
 
 var js_string = json_str;
@@ -237,7 +237,7 @@ methods["stream.find"] = function(args, callback) {
 };
 
 // Add sorts to manifest, which will add our own tab in sorts
-manifest.sorts = [{prop: "popularities.megahindimovies", name: "Hindi Movies",types:["movie", "series"]}];
+manifest.sorts = [{prop: "popularities.megahindimovies", name: "Hindi Movies",types:["movie"]}];
 
 // To provide meta for our movies, we'll just proxy the official cinemeta add-on
 var client = new Stremio.Client();
