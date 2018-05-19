@@ -66,7 +66,7 @@ let href_item_array = [];
 let imdb_item_array = [];
 let imdb_ids = [];
 
-const filters = ['New Hindi Movies', 'Bollywood Full Movies', 'Latest Hindi Full Movie', 'Hindi Comedy Movies - 2', 'full movie in hd', 'Deleted video', 'Private video', 'hindi Comedy Movies', 'best hindi Comedy Movie', 'Full Movies', 'Full Movie', 'hindi Comedy Movie', 'full hindi Comedy Movie', 'Latest bollywood Movies', 'With Eng Subtitles', 'with Eng Subs', 'English Subtitles', 'Eng Subs', 'Hindi Movies', 'hindi movie', 'Comedy Film', 'Superhit', 'ft.', 'Movies' , 'Hindi DvdRip', 'Movie', 'HD', 'bollywood', 'blockbuster', ' -', '- ', ' - '];
+const filters = ['New Released Full hindi Dubbed', 'Full hindi Dubbed', 'New Hindi Movies', 'Bollywood Full Movies', 'Latest Hindi Full Movie', 'Hindi Comedy Movies - 2', 'full movie in hd', 'Deleted video', 'Private video', 'hindi Comedy Movies', 'best hindi Comedy Movie', 'Full Movies', 'Full Movie', 'hindi Comedy Movie', 'full hindi Comedy Movie', 'Latest bollywood Movies', 'With Eng Subtitles', 'with Eng Subs', 'English Subtitles', 'Eng Subs', 'New Released', 'Hindi Movies', 'hindi movie', 'Comedy Film', 'hindi film', 'hindi Dubbed', 'Superhit', 'ft.', 'Movies' , 'Hindi DvdRip', 'Movie', 'HD', 'bollywood', 'blockbuster', ' -', '- ', ' - '];
 
 
 ```
