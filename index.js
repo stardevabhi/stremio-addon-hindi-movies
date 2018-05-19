@@ -10,7 +10,7 @@ let href_item_array = [];
 let imdb_item_array = [];
 let imdb_ids = [];
 
-const filters = ['New Released Full hindi Dubbed', 'Full hindi Dubbed', 'New Hindi Movies', 'Bollywood Full Movies', 'Latest Hindi Full Movie', 'Hindi Comedy Movies - 2', 'full movie in hd', 'Deleted video', 'Private video', 'hindi Comedy Movies', 'best hindi Comedy Movie', 'Full Movies', 'Full Movie', 'hindi Comedy Movie', 'full hindi Comedy Movie', 'Latest bollywood Movies', 'With Eng Subtitles', 'with Eng Subs', 'English Subtitles', 'Eng Subs', 'New Released', 'Hindi Movies', 'hindi movie', 'Comedy Film', 'hindi film', 'hindi Dubbed', 'Superhit', 'ft.', 'Movies' , 'Hindi DvdRip', 'Movie', 'HD', 'bollywood', 'blockbuster', ' -', '- ', ' - '];
+const filters = ['New Released Full hindi Dubbed','New Released Full hindi movie', 'bollywood classic comedy movies', 'english movie dubbed in hindi', 'hindi full comedy movies', 'Full hindi movies', 'bollywood horror movie',  'Full hindi movie', 'hindi Full movie', 'Full hindi Dubbed', 'New Hindi Movies', 'Bollywood Full Movies','Bollywood comedy Movies', 'bollywood romantic movies', 'romantic hindi movies', 'hindi latest movie', 'Latest Hindi Full Movie', 'Hindi Comedy Movies - 2', 'full movie in hd', 'Deleted video', 'Private video', 'hindi Comedy Movies', 'hindi full movies', 'hindi movie full', 'hindi full movie', 'best 90\'s action movie', 'bollywood movies full', 'popular hindi movies', 'suspense thriller hindi movies',  'best hindi Comedy Movie', 'hindi patriotic movie', 'Full Movies', 'Full Movie', 'hindi Comedy Movie', 'popular movies for kids', 'bollywood classic movies', 'full hindi Comedy Movie', 'Latest bollywood full Movies', 'Latest bollywood Movies', 'With Eng Subtitles','english subtitle','full hd movie in hindi version', 'with Eng Subs', 'English Subtitles', 'Eng Subs', 'New Released', 'full hd', 'Hindi Movies', 'hindi movie', 'south movies', 'Comedy Film', 'hindi film', 'in hindi', 'hindi Dubbed', 'action movies', 'Superhit', 'ft.', 'Movies' , 'Hindi DvdRip', 'Movie', 'HD', 'bollywood', 'blockbuster', 'latest', 'comedy', '-', '- ', ' - ', '100%', '720p', 'brrip', 'old'];
 
 
 
@@ -39,6 +39,7 @@ let scrape = async () => {
 			
 			let title_array = document.querySelectorAll('ytd-section-list-renderer#primary #contents .ytd-playlist-video-list-renderer #video-title');
 			let titles = [];
+			titles.push('Ramayan luv kush kand 1988');
 
 			title_array.forEach(function(item, index) {
 				titles.push(item.innerText);
@@ -53,6 +54,7 @@ let scrape = async () => {
 			//window.alert('s');
 			let href_array = document.querySelectorAll('ytd-section-list-renderer#primary #contents .ytd-playlist-video-list-renderer #content > a');
 			let hrefs = [];
+			hrefs.push('3QG5diJcfh8');
 			
 			href_array.forEach(function(item, index) {
 					const href_value =  item.getAttribute('href');
@@ -68,6 +70,7 @@ let scrape = async () => {
 
 
 	//now search google for imdb titles
+	//imdb_ids.push('tt0294139');
 	
 	for(let i = 0; i < result.length; i++ ) {
 
@@ -196,15 +199,16 @@ var manifest = {
     "background": "https://raw.githubusercontent.com/stardevabhi/stremio-addon-hindi-movies/master/icons/hindi-movies-1920x1080.png",
 
     // Properties that determine when Stremio picks this add-on
-    "types": ["movie"], // your add-on will be preferred for those content types
+    "types": ["movie", "series"], // your add-on will be preferred for those content types
     "idProperty": "imdb_id", // the property to use as an ID for your add-on; your add-on will be preferred for items with that property; can be an array
     // We need this for pre-4.0 Stremio, it's the obsolete equivalent of types/idProperty
-    "filter": { "query.imdb_id": { "$exists": true }, "query.type": { "$in":["movie"] } }
+    "filter": { "query.imdb_id": { "$exists": true }, "query.type": { "$in":["movie", "series"] } }
 };
 
 var js_string = json_str;
 
 var dataset =  JSON.parse(js_string);
+//console.log(dataset);
 console.log('Data loaded successfully!' + "\n");
  
 var methods = { };
@@ -233,7 +237,7 @@ methods["stream.find"] = function(args, callback) {
 };
 
 // Add sorts to manifest, which will add our own tab in sorts
-manifest.sorts = [{prop: "popularities.megahindimovies", name: "Hindi Movies",types:["movie"]}];
+manifest.sorts = [{prop: "popularities.megahindimovies", name: "Hindi Movies",types:["movie", "series"]}];
 
 // To provide meta for our movies, we'll just proxy the official cinemeta add-on
 var client = new Stremio.Client();
